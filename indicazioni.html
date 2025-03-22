@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiSaNi Apartments - Indicazioni</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Barra del menu -->
+    <header class="menu-bar">
+        <div class="logo">
+            <img src="logo.png" alt="Logo MiSaNi Apartments">
+        </div>
+        <div class="titolo">
+            <h1>MiSaNi</h1>
+        </div>
+        <!-- Icona del menu a scomparsa -->
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            &#9776; <!-- Icona dei tre trattini -->
+        </div>
+        <!-- Menu di navigazione -->
+        <nav class="menu" id="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="galleria.html">Galleria</a></li>
+                <li><a href="indicazioni.html">Indicazioni</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenuto principale delle Indicazioni -->
+    <main>
+        <section class="indicazioni">
+            <h2>Come raggiungerci</h2>
+            <p class="sottotitolo">Strada Redi 12, Novara (NO) 28100</p>
+
+            <!-- Mappa -->
+            <div class="mappa">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2811.123456789012!2d8.623456789012345!3d45.44567890123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786583456789012%3A0x1234567890123456!2sStrada%20Redi%2012%2C%2028100%20Novara%20NO!5e0!3m2!1sit!2sit!4v1632937199999!5m2!1sit!2sit"
+                    width="100%"
+                    height="400"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+            </div>
+
+            <!-- Servizio Taxi -->
+            <div class="servizio-taxi">
+                <h3>Servizio Taxi</h3>
+                <p>Per prenotare un taxi a Novara, chiama il numero:</p>
+                <p class="numero-taxi">📞 <a href="tel:+390321123456">+39 0321 123456</a></p>
+            </div>
+
+            <!-- Mezzi pubblici dalla stazione di Novara -->
+            <div class="mezzi-pubblici">
+                <h3>Come raggiungerci dalla stazione di Novara</h3>
+                <p>
+                    Dalla stazione di Novara, puoi raggiungere i MiSaNi Apartments in autobus o a piedi:
+                </p>
+                <ul>
+                    <li>
+                        🚌 <strong>Autobus:</strong> Prendi la linea 6 in direzione "Centro" e scendi alla fermata "Piazza Garibaldi". Da lì, sono 5 minuti a piedi.
+                        <a href="./data/busL6.pdf" target="_blank" class="btn-orari">Visualizza orari</a>
+                    </li>
+                    <li>
+                        🚶‍♂️ <strong>A piedi:</strong> La stazione dista circa 15 minuti a piedi. Segui le indicazioni per il centro città.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Distanze dai principali punti di interesse -->
+            <div class="distanze">
+                <h3>Distanze dai principali punti di interesse</h3>
+                <ul>
+                    <li>
+                        📍 <strong>Centro di Novara:</strong> 3 km (circa 10 minuti in auto)
+                        <a href="https://www.google.com/maps/dir/Strada+Redi+12,+28100+Novara+NO/Centro+Novara" target="_blank" class="btn-vai">Vai</a>
+                    </li>
+                    <li>
+                        🚉 <strong>Stazione di Novara:</strong> 4 km (circa 12 minuti in auto)
+                        <a href="https://www.google.com/maps/dir/Strada+Redi+12,+28100+Novara+NO/Stazione+Novara" target="_blank" class="btn-vai">Vai</a>
+                    </li>
+                    <li>
+                        ✈️ <strong>Aeroporto di Malpensa (MXP):</strong> 35 km (circa 30 minuti in auto)
+                        <a href="https://www.google.com/maps/dir/Strada+Redi+12,+28100+Novara+NO/Aeroporto+Malpensa" target="_blank" class="btn-vai">Vai</a>
+                    </li>
+                    <li>
+                        🏢 <strong>Rho Fiera:</strong> 50 km (circa 45 minuti in auto)
+                        <a href="https://www.google.com/maps/dir/Strada+Redi+12,+28100+Novara+NO/Rho+Fiera" target="_blank" class="btn-vai">Vai</a>
+                    </li>
+                    <li>
+                        🌊 <strong>Lago d'Orta:</strong> 40 km (circa 40 minuti in auto)
+                        <a href="https://www.google.com/maps/dir/Strada+Redi+12,+28100+Novara+NO/Lago+d'Orta" target="_blank" class="btn-vai">Vai</a>
+                    </li>
+                    <li>
+                        🌊 <strong>Lago Maggiore (Arona):</strong> 25 km (circa 25 minuti in auto)
+                        <a href="https://www.google.com/maps/dir/Strada+Redi+12,+28100+Novara+NO/Lago+Maggiore+Arona" target="_blank" class="btn-vai">Vai</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contattaci: info.misaninovara@gmail.com | +39 392 2161654</p>
+        <p>CIN: IT003106C27NELLIML | CIR: 00310600172</p>
+        <div class="social">
+            <a href="https://www.facebook.com/share/19AkaZLJnQ/?mibextid=wwXIfr" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/misaniapartments?igsh=MWE5a3ZzYnR2YnVzag%3D%3D&utm_source=qr" target="_blank">Instagram</a>
+            <a href="https://www.booking.com/Share-07HXy9" target="_blank">Booking</a>
+        </div>
+    </footer>
+
+    <!-- Script JavaScript -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

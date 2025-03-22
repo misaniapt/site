@@ -1,0 +1,600 @@
+/* Reset di base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Importazione del font White Star */
+@font-face {
+    font-family: 'White Star';
+    src: url('./data/WS.ttf') format('truetype'); /* Percorso del font */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Imposta il layout della pagina */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-color: #fffaf0; /* Colore di sfondo */
+    color: #333;
+	scroll-behavior: smooth; /* Scorrimento fluido */
+}
+
+/* Barra del menu */
+.menu-bar {
+    background-color: #2B3735; /* Colore della barra del menu */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: relative;
+}
+
+/* Logo */
+.logo img {
+    height: 120px; /* Altezza del logo */
+    width: 120px; /* Larghezza del logo */
+    border-radius: 50%; /* Rende il logo tondo */
+    object-fit: cover; /* Assicura che l'immagine si adatti al cerchio */
+}
+
+/* Titolo MiSaNi */
+.titolo h1 {
+    font-family: 'White Star', sans-serif; /* Applicazione del font White Star */
+    font-size: 60px; /* Dimensione della scritta */
+    color: #fff; /* Colore del testo */
+    margin: 0;
+}
+
+/* Icona del menu a scomparsa */
+.hamburger-menu {
+    font-size: 36px;
+    color: #fff;
+    cursor: pointer;
+    display: block; /* Icona sempre visibile */
+}
+
+/* Menu di navigazione */
+.menu {
+    display: none; /* Nascondi il menu di default */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #2B3735;
+    padding: 10px 20px;
+    border-radius: 0 0 0 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-10px);												   
+}
+
+.menu.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);					 
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column; /* Disposizione verticale */
+    gap: 10px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #fff; /* Colore del testo del menu */
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.menu ul li a:hover {
+    color: #ffd700; /* Cambia colore al passaggio del mouse */
+}
+
+/* Contenuto principale */
+main {
+    flex: 1; /* Fa sì che il main occupi tutto lo spazio disponibile */
+    padding: 20px;
+}
+
+/* Sezione Benvenuto */
+.benvenuto {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.benvenuto h2 {
+    font-size: 36px;
+    color: #2B3735;
+    margin-bottom: 20px;
+}
+
+.benvenuto p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.benvenuto .btn {
+    background-color: #2B3735;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;					  
+}
+
+.benvenuto .btn:hover {
+    background-color: #ff0000;
+	transform: translateY(-5px);							
+}
+
+/* Sezione Zona */
+.zona {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+.zona h2 {
+    font-size: 28px;
+    color: #2B3735;
+    margin-bottom: 20px;
+}
+
+.zona p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.zona ul {
+    list-style: none;
+    padding: 0;
+}
+
+.zona ul li {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Sezione Link Utili */
+.link-utili {
+    padding: 40px 20px;
+    background-color: #fff;
+}
+
+.link-utili h2 {
+    font-size: 28px;
+    color: #2B3735;
+    margin-bottom: 20px;
+}
+
+.link-utili ul {
+    list-style: none;
+    padding: 0;
+}
+
+.link-utili ul li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.link-utili ul li a {
+    color: #2B3735;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.link-utili ul li a:hover {
+    color: #ff0000;
+}
+
+/* Sezione Galleria Home */
+.galleria-home {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+.galleria-home h2 {
+    font-size: 28px;
+    color: #2B3735;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.foto-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.foto-container img {
+    width: 100%; /* Larghezza fissa */
+    height: 200px; /* Altezza fissa */
+    object-fit: cover; /* Mantiene le proporzioni senza distorsioni */
+    border-radius: 10px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;				
+}
+
+.foto-container img:hover {
+    transform: scale(1.05); /* Effetto hover */
+	filter: brightness(0.8);						
+}
+
+/* Sezione Contatti */
+.contatti {
+    padding: 40px 20px;
+    background-color: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contatti h2 {
+    font-size: 36px;
+    color: #2B3735;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contatti p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.info-contatti {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.info-contatti p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Stile per il modulo di contatto */
+.modulo-contatto {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group label {
+    font-size: 18px;
+    color: #2B3735;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #2B3735;
+	box-shadow: 0 0 8px rgba(139, 0, 0, 0.5);										 
+    outline: none;
+}
+
+.modulo-contatto button {
+    background-color: #2B3735;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modulo-contatto button:hover {
+    background-color: #ff0000;
+	 transform: translateY(-2px);								 
+}
+
+/* Stile per i collegamenti social */
+.collegamenti-social {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.collegamenti-social h3 {
+    font-size: 24px;
+    color: #2B3735;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #2B3735;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-link i {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.social-link span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.social-link:hover {
+    transform: scale(1.1);
+    color: #ff0000;
+}
+
+/* Footer */
+footer {
+    background-color: #2B3735;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    margin-top: auto; /* Fissa il footer in fondo */
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+footer .social {
+    margin-top: 10px;
+}
+
+footer .social a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+footer .social a:hover {
+    color: #ffd700;
+}
+
+/* Stile per il corpo della pagina Galleria e Indicazioni */
+body.galleria, body.indicazioni {
+    font-family: Arial, sans-serif;
+    background-color: #fffaf0; /* Colore di sfondo */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Altezza minima della viewport */
+}
+/* Stili per le sezioni della galleria */
+.sezione-galleria {
+    padding: 40px 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sezione-galleria h2 {
+    font-size: 36px;
+    color: #2B3735;
+    margin-bottom: 20px;
+    text-align: center;
+    
+}
+
+.sezione-galleria p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Stili per il contenitore delle foto */
+.foto-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.foto-container img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px
+}
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    text-align: center;
+}
+
+.lightbox-img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #ff0000;
+}
+
+/* Pulsanti di navigazione */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+/* Stili per le sezioni delle indicazioni */
+.indicazioni {
+    padding: 40px 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.indicazioni h2 {
+    font-size: 36px;
+    color: #2B3735;
+    margin-bottom: 20px;
+    text-align: center;
+    
+}
+.indicazioni p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+
+.indicazioni h3 {
+    font-size: 24px;
+    color: #2B3735;
+    margin-bottom: 20px;
+    text-align: center;
+    
+}
+
+.indicazioni ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+
+.indicazioni ul li {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Stili per i pulsanti */
+.btn-orari{
+	background-color: #2B3735;
+    color: #fff;
+    padding: 5px 10px;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+.btn-vai {
+    background-color: #2B3735;
+    color: #fff;
+    padding: 5px 10px;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.btn-orari:hover{
+    background-color: #ff0000;
+    transform: translateY(-2px);
+}
+.btn-vai:hover {
+    background-color: #ff0000;
+    transform: translateY(-2px);
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiSaNi Apartments - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Barra del menu -->
+    <header class="menu-bar">
+        <div class="logo">
+            <img src="logo.png" alt="Logo MiSaNi Apartments">
+        </div>
+        <div class="titolo">
+            <h1>MiSaNi</h1>
+        </div>
+        <!-- Icona del menu a scomparsa -->
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            &#9776; <!-- Icona dei tre trattini -->
+        </div>
+        <!-- Menu di navigazione -->
+        <nav class="menu" id="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="galleria.html">Galleria</a></li>
+                <li><a href="indicazioni.html">Indicazioni</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenuto principale della Home -->
+    <main>
+        <!-- Sezione Benvenuto -->
+        <section class="benvenuto">
+            <h2>Benvenuti ai MiSaNi Apartments</h2>
+            <p>
+                I nostri appartamenti sono un'oasi di tranquillità nel cuore di Novara, dove comfort e design si incontrano per offrirvi un soggiorno indimenticabile. 
+                Con spazi ampi e luminosi, arredi moderni e servizi di alta qualità, i MiSaNi Apartments sono il luogo perfetto per rilassarsi e scoprire le bellezze della città. 
+                Che siate qui per lavoro o per piacere, troverete tutto ciò di cui avete bisogno per sentirvi come a casa.
+            </p>
+            <a href="contatti.html" class="btn">Prenota ora</a>
+        </section>
+
+        <!-- Sezione Descrizione della Zona -->
+        <section class="zona">
+            <h2>La Nostra Zona</h2>
+            <p>
+                Situati in <strong>Strada Redi 12</strong>, nel cuore di Novara, i MiSaNi Apartments sono il punto di partenza ideale per esplorare la città e i suoi dintorni. 
+                Novara è una città ricca di storia, cultura e tradizioni, con monumenti iconici come la <strong>Basilica di San Gaudenzio</strong>, il <strong>Duomo di Novara</strong> e il <strong>Broletto</strong>. 
+                Passeggiando per le sue strade, potrete ammirare architetture affascinanti e immergervi nell'atmosfera unica di questa città.
+            </p>
+            <p>
+                Nei dintorni, vi aspettano numerose attrazioni da scoprire:
+            </p>
+            <ul>
+                <li>🌊 <strong>Lago d'Orta</strong>: Un gioiello incastonato tra le montagne, perfetto per una gita romantica o una giornata di relax.</li>
+                <li>🌊 <strong>Lago Maggiore</strong>: Con le sue splendide località come Stresa, Arona e le Isole Borromee, offre paesaggi mozzafiato e attività per tutti i gusti.</li>
+                <li>🏰 <strong>Castelli e Fortezze</strong>: Visitate il Castello di Novara o la Rocca di Arona per un tuffo nella storia.</li>
+                <li>🍷 <strong>Cantine e Vineyard</strong>: Scoprite i vini pregiati del Piemonte, famosi in tutto il mondo.</li>
+            </ul>
+        </section>
+
+        <!-- Sezione Link Utili -->
+        <section class="link-utili">
+            <h2>Link Utili</h2>
+            <p>
+                Ecco alcuni link per organizzare al meglio il vostro soggiorno:
+            </p>
+            <ul>
+                <li><a href="https://www.turismonovara.it" target="_blank">🌐 Sito ufficiale del turismo a Novara</a></li>
+                <li><a href="https://www.lagodorta.net" target="_blank">🌐 Informazioni sul Lago d'Orta</a></li>
+                <li><a href="https://www.lagomaggiore.it" target="_blank">🌐 Informazioni sul Lago Maggiore</a></li>
+                <li><a href="https://www.visitpiemonte.com" target="_blank">🌐 Turismo in Piemonte</a></li>
+            </ul>
+        </section>
+
+        <!-- Sezione Galleria Home -->
+        <section class="galleria-home">
+            <h2>Scopri i MiSaNi Apartments</h2>
+            <div class="foto-container">
+                <img src="./data/foto/ingresso.jpg" alt="Ingresso">
+                <img src="./data/foto/soggiorno1.jpg" alt="Soggiorno">
+                <img src="./data/foto/devero.jpg" alt="Lago Devero">
+                <img src="./data/foto/gaudenzio.jpg" alt="Basilica di San Gaudenzio">
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+		<p>Contattaci: info.misaninovara@gmail.com | +39 392 2161654</p>
+		<p>CIN: IT003106C27NELLIML | CIR: 00310600172</p>
+		<div class="social">
+			<a href="https://www.facebook.com/share/19AkaZLJnQ/?mibextid=wwXIfr" target="_blank">Facebook</a>
+			<a href="https://www.instagram.com/misaniapartments?igsh=MWE5a3ZzYnR2YnVzag%3D%3D&utm_source=qr" target="_blank">Instagram</a>
+			<a href="https://www.booking.com/Share-07HXy9" target="_blank">Booking</a>
+		</div>
+	</footer>
+
+    <!-- Script JavaScript -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

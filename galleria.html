@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiSaNi Apartments - Galleria</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Collegamento a Font Awesome per le icone -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Barra del menu -->
+    <header class="menu-bar">
+        <div class="logo">
+            <img src="logo.png" alt="Logo MiSaNi Apartments">
+        </div>
+        <div class="titolo">
+            <h1>MiSaNi</h1>
+        </div>
+        <!-- Icona del menu a scomparsa -->
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            &#9776; <!-- Icona dei tre trattini -->
+        </div>
+        <!-- Menu di navigazione -->
+        <nav class="menu" id="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="galleria.html">Galleria</a></li>
+                <li><a href="indicazioni.html">Indicazioni</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenuto principale della Galleria -->
+    <main>
+        <!-- Sezione Zona Giorno -->
+        <section class="sezione-galleria">
+            <h2>Zona Giorno</h2>
+            <div class="foto-container">
+                <img src="./data/foto/ingresso.jpg" alt="Ingresso" onclick="openLightbox(0)">
+                <img src="./data/foto/soggiorno1.jpg" alt="Soggiorno 1" onclick="openLightbox(1)">
+                <img src="./data/foto/soggiorno2.jpg" alt="Soggiorno 2" onclick="openLightbox(2)">
+                <img src="./data/foto/cucina.jpg" alt="Cucina" onclick="openLightbox(3)">
+            </div>
+            <p class="descrizione">
+                La zona giorno del nostro B&B è un ambiente luminoso e accogliente, progettato per offrire il massimo comfort. 
+                Con arredi moderni e spazi ben organizzati, è il luogo ideale per rilassarsi dopo una giornata di esplorazione. 
+                La cucina, completamente attrezzata, è perfetta per preparare pasti deliziosi.
+            </p>
+        </section>
+
+        <!-- Sezione Camera Matrimoniale -->
+        <section class="sezione-galleria">
+            <h2>Camera Matrimoniale</h2>
+            <div class="foto-container">
+                <img src="./data/foto/cam1.jpg" alt="Camera Matrimoniale 1" onclick="openLightbox(4)">
+                <img src="./data/foto/cam2.jpg" alt="Camera Matrimoniale 2" onclick="openLightbox(5)">
+                <img src="./data/foto/cam3.jpg" alt="Camera Matrimoniale 3" onclick="openLightbox(6)">
+            </div>
+            <p class="descrizione">
+                La camera matrimoniale è un rifugio di tranquillità, con un design elegante e moderno. 
+                Dotata di un letto comodo e di ampie finestre che lasciano entrare la luce naturale, 
+                è perfetta per un soggiorno indimenticabile. Ogni dettaglio è curato per garantire il massimo relax.
+            </p>
+        </section>
+
+        <!-- Sezione Camera Doppia -->
+        <section class="sezione-galleria">
+            <h2>Camera Doppia</h2>
+            <div class="foto-container">
+                <img src="./data/foto/cam4.jpg" alt="Camera Doppia 1" onclick="openLightbox(7)">
+                <img src="./data/foto/cam5.jpg" alt="Camera Doppia 2" onclick="openLightbox(8)">
+                <img src="./data/foto/cam6.jpg" alt="Camera Doppia 3" onclick="openLightbox(9)">
+            </div>
+            <p class="descrizione">
+                La camera doppia combina comfort e praticità, con due letti singoli e un arredamento moderno. 
+                Ideale per amici o viaggiatori, offre uno spazio accogliente e funzionale, 
+                dove ogni ospite può sentirsi a proprio agio.
+            </p>
+        </section>
+
+        <!-- Sezione Servizi -->
+        <section class="sezione-galleria">
+            <h2>Servizi</h2>
+            <div class="foto-container">
+                <img src="./data/foto/bagno1.jpg" alt="Bagno 1" onclick="openLightbox(10)">
+                <img src="./data/foto/bagno2.jpg" alt="Bagno 2" onclick="openLightbox(11)">
+                <img src="./data/foto/doccia.jpg" alt="Doccia" onclick="openLightbox(12)">
+            </div>
+            <p class="descrizione">
+                I nostri bagni sono stati progettati per offrire il massimo comfort e igiene. 
+                Dotati di docce spaziose e prodotti di alta qualità, sono un'oasi di relax 
+                dove potersi rigenerare dopo una giornata intensa.
+            </p>
+        </section>
+
+        <!-- Sezione Vista -->
+        <section class="sezione-galleria">
+            <h2>Vista</h2>
+            <div class="foto-container">
+                <img src="./data/foto/vis1.jpg" alt="Vista 1" onclick="openLightbox(13)">
+                <img src="./data/foto/vis2.jpg" alt="Vista 2" onclick="openLightbox(14)">
+                <img src="./data/foto/vis3.jpg" alt="Vista 3" onclick="openLightbox(15)">
+            </div>
+            <p class="descrizione">
+                Dalle nostre finestre si gode di una vista mozzafiato, con la Cupola di San Gaudenzio che domina l'orizzonte. 
+                Ogni mattina potrete ammirare il panorama mentre sorseggiate un caffè, 
+                immergendovi nella bellezza di Novara.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contattaci: info.misaninovara@gmail.com | +39 392 2161654</p>
+        <p>CIN: IT003106C27NELLIML | CIR: 00310600172</p>
+        <div class="social">
+            <a href="https://www.facebook.com/share/19AkaZLJnQ/?mibextid=wwXIfr" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/misaniapartments?igsh=MWE5a3ZzYnR2YnVzag%3D%3D&utm_source=qr" target="_blank">Instagram</a>
+            <a href="https://www.booking.com/Share-07HXy9" target="_blank">Booking</a>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" class="lightbox-img" src="" alt="Immagine ingrandita">
+            <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+            <a class="next" onclick="changeImage(1)">&#10095;</a>
+        </div>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script>
+		function toggleMenu() {
+				const menu = document.getElementById('menu');
+				menu.classList.toggle('active');
+		}
+        // Array con i percorsi delle immagini
+        const immagini = [
+            "./data/foto/ingresso.jpg",
+            "./data/foto/soggiorno1.jpg",
+            "./data/foto/soggiorno2.jpg",
+            "./data/foto/cucina.jpg",
+            "./data/foto/cam1.jpg",
+            "./data/foto/cam2.jpg",
+            "./data/foto/cam3.jpg",
+            "./data/foto/cam4.jpg",
+            "./data/foto/cam5.jpg",
+            "./data/foto/cam6.jpg",
+            "./data/foto/bagno1.jpg",
+            "./data/foto/bagno2.jpg",
+            "./data/foto/doccia.jpg",
+            "./data/foto/vis1.jpg",
+            "./data/foto/vis2.jpg",
+            "./data/foto/vis3.jpg"
+        ];
+
+        let currentIndex = 0;
+
+        // Apri la lightbox
+        function openLightbox(index) {
+            currentIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = immagini[currentIndex];
+            lightbox.classList.add('active');
+        }
+
+        // Chiudi la lightbox
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
+
+        // Cambia immagine
+        function changeImage(direction) {
+            currentIndex += direction;
+            if (currentIndex >= immagini.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = immagini.length - 1;
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = immagini[currentIndex];
+        }
+
+        // Chiudi la lightbox premendo ESC
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
