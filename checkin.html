@@ -36,7 +36,7 @@
     <!-- Contenuto principale del Check-In Online -->
 <main>
     <section class="checkin">
-        <h2>Check-In Online+</h2>
+        <h2>Check-In Online</h2>
         <p>Compila il modulo per effettuare il check-in online. Ti preghiamo di fornire i seguenti dettagli:</p>
         
         <!-- Modulo di Check-In -->
@@ -127,7 +127,7 @@
             campoDocumento.className = "form-group";
             campoDocumento.innerHTML = `
                 <label for="documento-${i}">Carica documento per occupante ${i}:</label>
-                <input type="file" id="documento-${i}" name="documento-${i}" >
+                <input type="file" id="documento-${i}" name="documento-${i}" required>
             `;
             campiDocumenti.appendChild(campoDocumento);
         }
