@@ -71,7 +71,7 @@
                         <option value="5">5</option>
                     </select>
                 </div>
-                <p>File accettati: PDF, JPG, PNG</p>
+                <p>File accettati: JPG, PNG</p>
 
                 <!-- Campi per caricare i documenti -->
                 <div id="campi-documenti" class="form-group">
@@ -105,7 +105,7 @@ function mostraCampiDocumenti() {
         campoDocumento.className = "form-group";
         campoDocumento.innerHTML = `
             <label for="documento-${i}">Carica documento per occupante ${i}:</label>
-            <input type="file" id="documento-${i}" name="documento-${i}" accept=".pdf,.jpg,.png">
+            <input type="file" id="documento-${i}" name="documento-${i}" accept=".jpg,.png">
         `;
         campiDocumenti.appendChild(campoDocumento);
     }
@@ -167,7 +167,7 @@ form.addEventListener("submit", async (event) => {
             if (input.files.length > 0) {
                 const file = input.files[0];
                 if (!isValidFileType(file)) {
-                    alert("Tipo di file non supportato. Si prega di caricare un file PDF, JPG o PNG.");
+                    alert("Tipo di file non supportato. Si prega di caricare un file JPG o PNG.");
                     return;
                 }
                 const cloudinaryUrl = await uploadToCloudinary(file);
