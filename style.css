@@ -369,6 +369,7 @@ main {
 }
 
 /* Footer */
+
 footer {
     background-color: #2B3735;
     color: #fff;
@@ -376,34 +377,14 @@ footer {
     padding: 20px;
     width: 100%;
     margin-top: auto; /* Fissa il footer in fondo */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-footer p {
-    margin: 5px 0;
-    font-size: 16px;
-}
-
-footer .social {
-    margin-top: 10px;
-}
-
-footer .social a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 18px;
-    transition: color 0.3s ease;
-}
-
-footer .social a:hover {
-    color: #ffd700;
-}
 /* Stile per la sezione meteo */
 footer .meteo {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    text-align: center;
+    margin: 15px 0;
 }
 
 footer .meteo .meteo-link {
@@ -431,6 +412,24 @@ footer .meteo .meteo-icon {
     border-radius: 50%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+/* Collegamenti social */
+footer .social {
+    margin-top: 10px;
+}
+
+footer .social a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+footer .social a:hover {
+    color: #ffd700;
+}
+
 
 /* Stile per il corpo della pagina Galleria e Indicazioni */
 body.galleria, body.indicazioni {
