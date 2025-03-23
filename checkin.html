@@ -94,95 +94,107 @@
 
     <!-- Script JavaScript -->
     <script>
-        // Funzione per mostrare/gestire i campi dei documenti in base al numero di occupanti
-        function mostraCampiDocumenti() {
-            const numeroOccupanti = document.getElementById("numero-occupanti").value;
-            const campiDocumenti = document.getElementById("campi-documenti");
-            campiDocumenti.innerHTML = ""; // Pulisce i campi esistenti
+        // Funzione per validare il tipo di file
+function isValidFileType(file) {
+    const allowedTypes = ["image/jpeg", "image/png", "application/pdf"];
+    return allowedTypes.includes(file.type);
+}
 
-            for (let i = 1; i <= numeroOccupanti; i++) {
-                const campoDocumento = document.createElement("div");
-                campoDocumento.className = "form-group";
-                campoDocumento.innerHTML = `
-                    <label for="documento-${i}">Carica documento per occupante ${i}:</label>
-                    <input type="file" id="documento-${i}" name="documento-${i}" accept=".pdf,.jpg,.png">
-                `;
-                campiDocumenti.appendChild(campoDocumento);
+// Funzione per caricare file su Cloudinary
+async function uploadToCloudinary(file) {
+    try {
+        const cloudName = "ddkcxfsch"; // Il tuo Cloud Name
+        const uploadPreset = "checkin"; // Il tuo Upload Preset
+
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("upload_preset", uploadPreset);
+
+        const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/upload`, {
+            method: "POST",
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error("Errore durante il caricamento del file su Cloudinary");
+        }
+
+        const data = await response.json();
+        return data.secure_url; // Restituisce l'URL del file caricato
+    } catch (error) {
+        console.error("Errore Cloudinary:", error);
+        throw error;
+    }
+}
+
+// Gestione del modulo di check-in
+const form = document.querySelector(".modulo-checkin");
+const successMessage = document.getElementById("success-message");
+const errorMessage = document.getElementById("error-message");
+
+form.addEventListener("submit", async (event) => {
+    event.preventDefault(); // Impedisce l'invio del modulo predefinito
+
+    const loadingMessage = document.createElement("div");
+    loadingMessage.textContent = "Caricamento in corso...";
+    form.appendChild(loadingMessage);
+
+    try {
+        const formData = new FormData(form);
+
+        // Carica i file su Cloudinary
+        const fileInputs = document.querySelectorAll('input[type="file"]');
+        const fileUrls = [];
+
+        for (const input of fileInputs) {
+            if (input.files.length > 0) {
+                const file = input.files[0];
+                if (!isValidFileType(file)) {
+                    alert("Tipo di file non supportato. Si prega di caricare un file PDF, JPG o PNG.");
+                    return;
+                }
+                const cloudinaryUrl = await uploadToCloudinary(file);
+                fileUrls.push(cloudinaryUrl);
             }
         }
 
-        // Gestione del modulo di check-in
-        const form = document.querySelector(".modulo-checkin");
-        const successMessage = document.getElementById("success-message");
-        const errorMessage = document.getElementById("error-message");
+        // Aggiungi gli URL dei file ai dati del form
+        fileUrls.forEach((url, index) => {
+            formData.append(`documento-${index + 1}-url`, url);
+        });
 
-        form.addEventListener("submit", async (event) => {
-            event.preventDefault(); // Impedisce l'invio del modulo predefinito
+        // Rimuovi i file dal FormData (non inviarli a Formspree)
+        for (const input of fileInputs) {
+            formData.delete(input.name);
+        }
 
-            try {
-                const formData = new FormData(form);
-
-                // Carica i file su Cloudinary
-                const fileInputs = document.querySelectorAll('input[type="file"]');
-                const fileUrls = [];
-
-                for (const input of fileInputs) {
-                    if (input.files.length > 0) {
-                        const file = input.files[0];
-                        const cloudinaryUrl = await uploadToCloudinary(file);
-                        fileUrls.push(cloudinaryUrl);
-                    }
-                }
-
-                // Aggiungi gli URL dei file ai dati del form
-                fileUrls.forEach((url, index) => {
-                    formData.append(`documento-${index + 1}-url`, url);
-                });
-
-                // Invia i dati a Formspree
-                const response = await fetch(form.action, {
-                    method: "POST",
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    successMessage.style.display = "block";
-                    errorMessage.style.display = "none";
-                    form.reset(); // Resetta il modulo
-                    document.getElementById("campi-documenti").innerHTML = ""; // Pulisce i campi dei documenti
-                } else {
-                    const errorData = await response.json(); // Leggi i dettagli dell'errore
-                    console.error("Errore:", errorData);
-                    throw new Error("Errore nella richiesta");
-                }
-            } catch (error) {
-                successMessage.style.display = "none";
-                errorMessage.style.display = "block";
-                console.error(error);
+        // Invia i dati a Formspree
+        const response = await fetch(form.action, {
+            method: "POST",
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
             }
         });
 
-        // Funzione per caricare file su Cloudinary
-        async function uploadToCloudinary(file) {
-            const cloudName = "ddkcxfsch"; // Il tuo Cloud Name
-            const uploadPreset = "checkin"; // Il tuo Upload Preset
-
-            const formData = new FormData();
-            formData.append("file", file);
-            formData.append("upload_preset", uploadPreset);
-
-            const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/upload`, {
-                method: "POST",
-                body: formData
-            });
-
-            const data = await response.json();
-            return data.secure_url; // Restituisce l'URL del file caricato
+        if (response.ok) {
+            successMessage.style.display = "block";
+            errorMessage.style.display = "none";
+            form.reset(); // Resetta il modulo
+            document.getElementById("campi-documenti").innerHTML = ""; // Pulisce i campi dei documenti
+        } else {
+            const errorData = await response.json(); // Leggi i dettagli dell'errore
+            console.error("Errore:", errorData);
+            throw new Error("Errore nella richiesta");
         }
-
+    } catch (error) {
+        successMessage.style.display = "none";
+        errorMessage.style.display = "block";
+        console.error(error);
+    } finally {
+        loadingMessage.remove();
+    }
+});
     // Funzione per il menu a scomparsa
     function toggleMenu() {
         const menu = document.getElementById("menu");
