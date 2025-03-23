@@ -134,10 +134,14 @@
         }
 
         // Gestione del modulo di check-in
-        const form = document.querySelector(".modulo-checkin");
-        form.addEventListener("submit", async (event) => {
-            event.preventDefault(); // Impedisce l'invio del modulo predefinito
+    const form = document.querySelector(".modulo-checkin");
+    const successMessage = document.getElementById("success-message");
+    const errorMessage = document.getElementById("error-message");
 
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault(); // Impedisce l'invio del modulo predefinito
+
+        try {
             const formData = new FormData(form);
             const response = await fetch(form.action, {
                 method: "POST",
@@ -148,13 +152,19 @@
             });
 
             if (response.ok) {
-                alert("Grazie! Il tuo check-in è stato inviato con successo.");
+                successMessage.style.display = "block";
+                errorMessage.style.display = "none";
                 form.reset(); // Resetta il modulo
                 document.getElementById("campi-documenti").innerHTML = ""; // Pulisce i campi dei documenti
             } else {
-                alert("Si è verificato un errore. Riprova più tardi.");
+                throw new Error("Errore nella richiesta");
             }
-        });
+        } catch (error) {
+            successMessage.style.display = "none";
+            errorMessage.style.display = "block";
+            console.error(error);
+        }
+    });
 		
 
         // Funzione per il menu a scomparsa
