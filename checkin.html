@@ -95,22 +95,23 @@
     <!-- Script JavaScript -->
     <script>
 	// Funzione per mostrare/gestire i campi dei documenti in base al numero di occupanti
-        function mostraCampiDocumenti() {
-            const numeroOccupanti = document.getElementById("numero-occupanti").value;
-            const campiDocumenti = document.getElementById("campi-documenti");
-            campiDocumenti.innerHTML = ""; // Pulisce i campi esistenti
+function mostraCampiDocumenti() {
+    const numeroOccupanti = document.getElementById("numero-occupanti").value;
+    const campiDocumenti = document.getElementById("campi-documenti");
+    campiDocumenti.innerHTML = ""; // Pulisce i campi esistenti
 
-            for (let i = 1; i <= numeroOccupanti; i++) {
-                const campoDocumento = document.createElement("div");
-                campoDocumento.className = "form-group";
-                campoDocumento.innerHTML = `
-                    <label for="documento-${i}">Carica documento per occupante ${i}:</label>
-                    <input type="file" id="documento-${i}" name="documento-${i}" accept=".pdf,.jpg,.png">
-                `;
-                campiDocumenti.appendChild(campoDocumento);
-            }
-        }
-        // Funzione per validare il tipo di file
+    for (let i = 1; i <= numeroOccupanti; i++) {
+        const campoDocumento = document.createElement("div");
+        campoDocumento.className = "form-group";
+        campoDocumento.innerHTML = `
+            <label for="documento-${i}">Carica documento per occupante ${i}:</label>
+            <input type="file" id="documento-${i}" name="documento-${i}" accept=".pdf,.jpg,.png">
+        `;
+        campiDocumenti.appendChild(campoDocumento);
+    }
+}
+
+// Funzione per validare il tipo di file
 function isValidFileType(file) {
     const allowedTypes = ["image/jpeg", "image/png", "application/pdf"];
     return allowedTypes.includes(file.type);
@@ -170,11 +171,11 @@ form.addEventListener("submit", async (event) => {
                     return;
                 }
                 const cloudinaryUrl = await uploadToCloudinary(file);
-                fileUrls.push(cloudinaryUrl);
+                fileUrls.push(cloudinaryUrl); // Aggiungi l'URL alla lista
             }
         }
 
-        // Aggiungi gli URL dei file ai dati del form
+        // Aggiungi tutti gli URL dei file al FormData
         fileUrls.forEach((url, index) => {
             formData.append(`documento-${index + 1}-url`, url);
         });
@@ -211,11 +212,12 @@ form.addEventListener("submit", async (event) => {
         loadingMessage.remove();
     }
 });
-    // Funzione per il menu a scomparsa
-    function toggleMenu() {
-        const menu = document.getElementById("menu");
-        menu.classList.toggle("active");
-    }
+
+// Funzione per il menu a scomparsa
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.classList.toggle("active");
+}
 </script>
 </body>
 </html>
